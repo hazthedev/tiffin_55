@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import Container from '../components/Container.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Divider from '../components/Divider.astro';
+import ScrollReveal from '../components/ScrollReveal';
+import ContactForm from '../components/ContactForm';
+import siteData from '../data/site.json';
+
+const { address, phone, whatsapp, hours, googleMapsEmbed, googleMapsLink, social } = siteData;
+---
+
+<BaseLayout
+  title="Story & Visit | Tiffin 55 — Late-Night Malay Cafe"
+  description="We're just five guys who missed kampung food. Tiffin 55 started in 2023 with a simple idea — bring back the mangkuk tingkat. Make it cool again. Serve it hot, served late, served right."
+>
+  <Navbar />
+  <main>
+    <!-- Story Hero -->
+    <section class="relative pt-32 pb-16 sm:pt-40 sm:pb-24 bg-charcoal">
+      <Container>
+        <SectionHeading
+          eyebrow="OUR STORY"
+          headline="We just missed kampung food."
+          subhead="Tiffin 55 started in 2023 with a simple idea — bring back the mangkuk tingkat. Make it cool again. Serve it hot, served late, served right."
+          align="center"
+        />
+      </Container>
+    </section>
+
+    <!-- The Idea -->
+    <section class="py-16 sm:py-24 bg-charcoal">
+      <Container>
+        <ScrollReveal client:load>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-copper mb-3">The Idea</p>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold text-cream leading-tight">Why mangkuk tingkat?</h2>
+            <div class="mt-6 space-y-4 text-cream/70 leading-relaxed">
+              <p>Growing up, the best meals came stacked — rice on the bottom, lauk in the middle, sambal on top. The mangkuk tingkat wasn't just a container. It was a promise that someone cared enough to pack lunch for you.</p>
+              <p>We wanted to bring that feeling back. Not as a gimmick, but as a reminder that food tastes better when it's shared, stacked, and served with intention.</p>
+              <p>So we opened a cafe that stays open till 5am, serves your grandma's recipes, and isn't ashamed to look industrial while doing it.</p>
+            </div>
+          </div>
+          <div class="relative aspect-[4/5] rounded-sm overflow-hidden bg-coal-brown">
+            <img
+              src="/images/tiffin/tiffin-hero.jpg"
+              alt="Traditional mangkuk tingkat stacked tiffin carriers"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        </ScrollReveal>
+      </Container>
+    </section>
+
+    <!-- The Space -->
+    <section class="py-16 sm:py-24 bg-coal-brown">
+      <Container>
+        <div class="text-center mb-10">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-copper mb-3">The Space</p>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-cream">Built rough on purpose.</h2>
+          <p class="mt-4 text-cream/60 max-w-xl mx-auto">Stays open till 5am on purpose.</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+          <div class="aspect-square rounded-sm overflow-hidden bg-charcoal">
+            <img src="/images/interior/space-1.jpg" alt="Industrial interior with exposed brick" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+          </div>
+          <div class="aspect-square rounded-sm overflow-hidden bg-charcoal">
+            <img src="/images/interior/space-2.jpg" alt="Edison bulbs and dark wood tables" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+          </div>
+          <div class="aspect-square rounded-sm overflow-hidden bg-charcoal">
+            <img src="/images/interior/space-3.jpg" alt="Late night crowd at Tiffin 55" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+          </div>
+          <div class="aspect-square rounded-sm overflow-hidden bg-charcoal">
+            <img src="/images/interior/space-4.jpg" alt="Mangkuk tingkat being served" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Visit Us -->
+    <section id="visit" class="py-16 sm:py-24 bg-charcoal">
+      <Container>
+        <ScrollReveal client:load>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+          <!-- Map -->
+          <div class="rounded-sm overflow-hidden bg-coal-brown h-80 lg:h-auto min-h-[320px]">
+            <iframe
+              title="Tiffin 55 Location"
+              src={googleMapsEmbed}
+              class="w-full h-full border-0"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+
+          <!-- Details -->
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-copper mb-3">Visit Us</p>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold text-cream">Find us in Wangsa Maju</h2>
+            <div class="mt-6 space-y-5">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.15em] text-cream/40 mb-1">Address</p>
+                <p class="text-cream/80">{address}</p>
+              </div>
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.15em] text-cream/40 mb-1">Hours</p>
+                <p class="font-mono text-copper text-lg">{hours.open} – {hours.close} <span class="text-cream/60 text-base font-body">({hours.days})</span></p>
+              </div>
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.15em] text-cream/40 mb-1">Phone / WhatsApp</p>
+                <a href={`tel:${phone}`} class="text-cream/80 hover:text-copper transition-colors">{phone}</a>
+              </div>
+              <div class="pt-2">
+                <a
+                  href={googleMapsLink}
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex items-center gap-2 px-5 py-2.5 bg-copper text-charcoal text-sm font-medium rounded-sm hover:bg-copper/90 transition-all"
+                >
+                  Get Directions
+                </a>
+              </div>
+              <p class="text-sm text-cream/40">Parking available along Jalan Wangsa Delima 5. Late-night access via main road.</p>
+            </div>
+          </div>
+        </div>
+        </ScrollReveal>
+      </Container>
+    </section>
+
+    <Divider />
+
+    <!-- Contact Form -->
+    <section class="py-16 sm:py-24 bg-charcoal">
+      <Container>
+        <div class="max-w-xl mx-auto">
+          <SectionHeading
+            eyebrow="GET IN TOUCH"
+            headline="Drop us a message"
+            subhead="Questions, feedback, or reservation requests — we'd love to hear from you."
+            align="center"
+          />
+          <div class="mt-10">
+            <ContactForm client:load />
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Social CTA -->
+    <section class="py-16 bg-coal-brown border-t border-concrete-grey/20">
+      <Container>
+        <div class="text-center mb-10">
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-cream">Follow the vibe</h2>
+          <p class="mt-2 text-cream/60">See what we're serving tonight.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+          <a href={social.instagram} target="_blank" rel="noopener" class="group flex flex-col items-center gap-3 p-6 rounded-sm border border-concrete-grey/20 hover:border-copper/40 transition-colors bg-charcoal">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-copper"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <span class="text-cream font-medium group-hover:text-copper transition-colors">Instagram</span>
+            <span class="text-xs text-cream/40">@tiffin55</span>
+          </a>
+          <a href={social.facebook} target="_blank" rel="noopener" class="group flex flex-col items-center gap-3 p-6 rounded-sm border border-concrete-grey/20 hover:border-copper/40 transition-colors bg-charcoal">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-copper"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            <span class="text-cream font-medium group-hover:text-copper transition-colors">Facebook</span>
+            <span class="text-xs text-cream/40">Tiffin 55</span>
+          </a>
+          <a href={social.tiktok} target="_blank" rel="noopener" class="group flex flex-col items-center gap-3 p-6 rounded-sm border border-concrete-grey/20 hover:border-copper/40 transition-colors bg-charcoal">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-copper"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+            <span class="text-cream font-medium group-hover:text-copper transition-colors">TikTok</span>
+            <span class="text-xs text-cream/40">@tiffin55</span>
+          </a>
+        </div>
+      </Container>
+    </section>
+  </main>
+  <Footer />
+  <WhatsAppFloat />
+</BaseLayout>

@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import Container from '../components/Container.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import MenuTabs from '../components/MenuTabs';
+import menuData from '../data/menu.json';
+
+const { categories, items } = menuData;
+---
+
+<BaseLayout
+  title="Menu | Tiffin 55 — Late-Night Malay Cafe"
+  description="Browse our full menu: Tiffin Sets, Lauk Kampung, Pasta, Mains, Roti & Bakar, Pancakes, Coffee & Drinks. Kampung-style. Cafe-served. Halal, always."
+>
+  <Navbar />
+  <main>
+    <!-- Menu Hero -->
+    <section class="relative pt-32 pb-16 sm:pt-40 sm:pb-20 bg-charcoal">
+      <Container>
+        <SectionHeading
+          eyebrow="THE MENU"
+          headline="The Menu"
+          subhead="Kampung-style. Cafe-served. Halal, always."
+          align="center"
+        />
+      </Container>
+    </section>
+
+    <!-- Menu Content (React island) -->
+    <section class="pb-20 bg-charcoal">
+      <Container>
+        <MenuTabs client:load categories={categories} items={items} />
+      </Container>
+    </section>
+
+    <!-- Order CTA -->
+    <section class="py-16 bg-coal-brown border-t border-concrete-grey/20">
+      <Container>
+        <div class="text-center">
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-cream">Hungry yet?</h2>
+          <p class="mt-3 text-cream/60">Order via WhatsApp, FoodPanda, or GrabFood.</p>
+          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href={`https://wa.me/${import.meta.env.PUBLIC_WHATSAPP_NUMBER || '60123456789'}?text=Hi%20Tiffin%2055!%20I%20want%20to%20order.`}
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-copper text-charcoal font-medium rounded-sm hover:bg-copper/90 transition-all"
+            >
+              WhatsApp Order
+            </a>
+            <a
+              href="https://foodpanda.my"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center gap-2 px-6 py-3 border border-copper text-copper font-medium rounded-sm hover:bg-copper/10 transition-all"
+            >
+              FoodPanda
+            </a>
+            <a
+              href="https://grab.com/my/food"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center gap-2 px-6 py-3 border border-copper text-copper font-medium rounded-sm hover:bg-copper/10 transition-all"
+            >
+              GrabFood
+            </a>
+          </div>
+        </div>
+      </Container>
+    </section>
+  </main>
+  <Footer />
+  <WhatsAppFloat />
+</BaseLayout>

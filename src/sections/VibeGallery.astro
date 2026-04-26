@@ -1,0 +1,55 @@
+---
+import Container from '../components/Container.astro';
+import ScrollReveal from '../components/ScrollReveal';
+
+const images = [
+  { src: '/images/interior/vibe-1.jpg', alt: 'Industrial interior with exposed brick walls', size: 'col-span-2 row-span-2' },
+  { src: '/images/interior/vibe-2.jpg', alt: 'Close up of caramel latte art', size: 'col-span-1 row-span-1' },
+  { src: '/images/interior/vibe-3.jpg', alt: 'Edison bulb lighting over dark wood tables', size: 'col-span-1 row-span-1' },
+  { src: '/images/interior/vibe-4.jpg', alt: 'Mangkuk tingkat from above', size: 'col-span-1 row-span-1' },
+  { src: '/images/interior/vibe-5.jpg', alt: 'Late night crowd lepak at Tiffin 55', size: 'col-span-1 row-span-1' },
+];
+---
+
+<section class="py-16 sm:py-24 bg-charcoal">
+  <Container>
+    <ScrollReveal client:load>
+    <div class="text-center mb-10">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-copper mb-3">The Vibe</p>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-cream">Raw, warm, open late.</h2>
+    </div>
+    </ScrollReveal>
+    <div class="grid grid-cols-2 sm:grid-cols-4 auto-rows-[180px] sm:auto-rows-[200px] gap-3 sm:gap-4">
+      <div class="col-span-2 row-span-2 rounded-sm overflow-hidden bg-coal-brown group relative">
+        <img src={images[0].src} alt={images[0].alt} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+        <div class="absolute inset-0 bg-charcoal/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+          <span class="text-cream text-sm font-medium">Industrial soul</span>
+        </div>
+      </div>
+      <div class="col-span-1 row-span-1 rounded-sm overflow-hidden bg-coal-brown group relative">
+        <img src={images[1].src} alt={images[1].alt} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+        <div class="absolute inset-0 bg-charcoal/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+          <span class="text-cream text-xs font-medium">Brewed hot</span>
+        </div>
+      </div>
+      <div class="col-span-1 row-span-1 rounded-sm overflow-hidden bg-coal-brown group relative">
+        <img src={images[2].src} alt={images[2].alt} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+        <div class="absolute inset-0 bg-charcoal/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+          <span class="text-cream text-xs font-medium">Warm glow</span>
+        </div>
+      </div>
+      <div class="col-span-1 row-span-1 rounded-sm overflow-hidden bg-coal-brown group relative">
+        <img src={images[3].src} alt={images[3].alt} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+        <div class="absolute inset-0 bg-charcoal/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+          <span class="text-cream text-xs font-medium">Stacked</span>
+        </div>
+      </div>
+      <div class="col-span-1 row-span-1 rounded-sm overflow-hidden bg-coal-brown group relative">
+        <img src={images[4].src} alt={images[4].alt} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+        <div class="absolute inset-0 bg-charcoal/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+          <span class="text-cream text-xs font-medium">Lepak ready</span>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>

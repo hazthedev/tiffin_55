@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tiffin55.vercel.app/sitemap-index.xml

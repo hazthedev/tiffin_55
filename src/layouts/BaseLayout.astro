@@ -1,0 +1,90 @@
+---
+import '@fontsource/bricolage-grotesque/400.css';
+import '@fontsource/bricolage-grotesque/500.css';
+import '@fontsource/bricolage-grotesque/600.css';
+import '@fontsource/bricolage-grotesque/700.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/caveat/400.css';
+import '@fontsource/jetbrains-mono/400.css';
+import '@fontsource/jetbrains-mono/500.css';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+}
+
+const {
+  title,
+  description = 'Authentic kampung Malay food served in traditional mangkuk tingkat. Open till 5am, every night. Halal Muslim-owned cafe in Wangsa Maju. Rated 4.6/5 by 900+ diners.',
+  image = '/og-image.jpg',
+  canonical,
+} = Astro.props;
+
+const siteUrl = 'https://tiffin55.vercel.app';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical || siteUrl} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image.startsWith('http') ? image : `${siteUrl}${image}`} />
+    <meta property="og:url" content={canonical || siteUrl} />
+    <meta property="og:type" content="restaurant" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image.startsWith('http') ? image : `${siteUrl}${image}`} />
+
+    <!-- JSON-LD Restaurant Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Tiffin 55",
+      "image": `${siteUrl}/og-image.jpg`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "55, Jalan Wangsa Delima 5",
+        "addressLocality": "Wangsa Maju",
+        "addressRegion": "Kuala Lumpur",
+        "addressCountry": "MY"
+      },
+      "telephone": "+60123456789",
+      "servesCuisine": ["Malaysian", "Malay"],
+      "priceRange": "$",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "17:00",
+          "closes": "05:00"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.6",
+        "reviewCount": "900"
+      }
+    })} />
+  </head>
+  <body class="min-h-dvh bg-charcoal text-cream antialiased">
+    <slot />
+  </body>
+</html>

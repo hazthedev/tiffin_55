@@ -1,0 +1,22 @@
+{
+  "reviews": [
+    {
+      "rating": 5,
+      "quote": "The mangkuk tingkat set is a game changer. Nostalgic, generous, and hits different at 2am. Will be back.",
+      "name": "Aisyah R.",
+      "date": "March 2025"
+    },
+    {
+      "rating": 5,
+      "quote": "Best late-night spot in Wangsa Maju. The lamb chop under RM20 is unreal. Staff are super friendly too.",
+      "name": "Faizal M.",
+      "date": "February 2025"
+    },
+    {
+      "rating": 4,
+      "quote": "Love the industrial vibe and the kopi tarik. Perfect lepak spot after class at TAR UMT.",
+      "name": "Hakim T.",
+      "date": "January 2025"
+    }
+  ]
+}

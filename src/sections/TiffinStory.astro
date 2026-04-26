@@ -1,0 +1,28 @@
+---
+import Container from '../components/Container.astro';
+import ScrollReveal from '../components/ScrollReveal';
+---
+
+<section class="py-16 sm:py-24 bg-charcoal">
+  <Container>
+    <ScrollReveal client:load>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+      <div class="aspect-[4/5] rounded-sm overflow-hidden bg-coal-brown opacity-0 animate-fade-in" style="animation-delay: 0ms; animation-fill-mode: forwards;">
+        <img src="/images/tiffin/tiffin-stacked.jpg" alt="Stacked mangkuk tingkat" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+      <div class="aspect-[4/5] rounded-sm overflow-hidden bg-coal-brown opacity-0 animate-fade-in" style="animation-delay: 200ms; animation-fill-mode: forwards;">
+        <img src="/images/tiffin/tiffin-unstacking.jpg" alt="Unstacking the tiffin carrier" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+      <div class="aspect-[4/5] rounded-sm overflow-hidden bg-coal-brown opacity-0 animate-fade-in" style="animation-delay: 400ms; animation-fill-mode: forwards;">
+        <img src="/images/tiffin/tiffin-served.jpg" alt="Tiffin meal served on the table" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+    </div>
+    <div class="mt-10 text-center">
+      <p class="font-display text-2xl sm:text-3xl font-bold text-cream">Three tiers. Three flavors. One table.</p>
+      <p class="mt-3 text-cream/60 max-w-xl mx-auto">
+        The mangkuk tingkat isn't a gimmick. It's how we remember meals tasted at home — slow, generous, shared.
+      </p>
+    </div>
+    </ScrollReveal>
+  </Container>
+</section>

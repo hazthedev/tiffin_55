@@ -1,0 +1,48 @@
+---
+import Container from '../components/Container.astro';
+import Button from '../components/Button.astro';
+import ScrollReveal from '../components/ScrollReveal';
+import siteData from '../data/site.json';
+
+const { address, hours, googleMapsLink } = siteData;
+---
+
+<section class="py-16 sm:py-24 bg-charcoal">
+  <Container>
+    <ScrollReveal client:load>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <!-- Map preview -->
+      <div class="rounded-sm overflow-hidden bg-coal-brown h-72 sm:h-96">
+        <iframe
+          title="Tiffin 55 Location"
+          src={siteData.googleMapsEmbed}
+          class="w-full h-full border-0"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+
+      <!-- Info -->
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-copper mb-3">Find Us</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-cream">Come lepak with us.</h2>
+        <div class="mt-6 space-y-4">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.15em] text-cream/40 mb-1">Address</p>
+            <p class="text-cream/80">{address}</p>
+          </div>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.15em] text-cream/40 mb-1">Hours</p>
+            <p class="font-mono text-copper text-lg">{hours.open} – {hours.close} <span class="text-cream/60 text-base font-body">({hours.days})</span></p>
+          </div>
+        </div>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+          <Button variant="primary" href={googleMapsLink} target="_blank" rel="noopener">Get Directions</Button>
+          <Button variant="outline" href="/story#visit">More Details</Button>
+        </div>
+      </div>
+    </div>
+    </ScrollReveal>
+  </Container>
+</section>

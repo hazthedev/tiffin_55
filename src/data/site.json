@@ -1,0 +1,25 @@
+{
+  "name": "Tiffin 55",
+  "tagline": "Kampung flavors. City vibes.",
+  "address": "55, Jalan Wangsa Delima 5, Wangsa Maju, 53300 Kuala Lumpur",
+  "phone": "+60123456789",
+  "whatsapp": "+60123456789",
+  "hours": {
+    "open": "17:00",
+    "close": "05:00",
+    "days": "Daily"
+  },
+  "social": {
+    "instagram": "https://instagram.com/tiffin55",
+    "facebook": "https://facebook.com/tiffin55",
+    "tiktok": "https://tiktok.com/@tiffin55"
+  },
+  "foodpanda": "https://foodpanda.my",
+  "grabfood": "https://grab.com/my/food",
+  "googleMapsEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.6!2d101.73!3d3.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTInMDAuMCJOIDEwMcKwNDMnNDguMCJF!5e0!3m2!1sen!2smy!4v1",
+  "googleMapsLink": "https://maps.google.com/?q=Tiffin+55+Wangsa+Maju",
+  "rating": {
+    "score": 4.6,
+    "count": 900
+  }
+}

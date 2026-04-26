@@ -1,0 +1,215 @@
+{
+  "categories": [
+    {
+      "id": "tiffin-sets",
+      "label": "Tiffin Sets",
+      "labelBm": "Tiffin Sets"
+    },
+    {
+      "id": "lauk-kampung",
+      "label": "Lauk Kampung",
+      "labelBm": "Lauk Kampung"
+    },
+    {
+      "id": "pasta",
+      "label": "Pasta",
+      "labelBm": "Pasta"
+    },
+    {
+      "id": "mains",
+      "label": "Mains",
+      "labelBm": "Mains"
+    },
+    {
+      "id": "roti-bakar",
+      "label": "Roti & Bakar",
+      "labelBm": "Roti & Bakar"
+    },
+    {
+      "id": "pancakes",
+      "label": "Pancakes",
+      "labelBm": "Pancakes"
+    },
+    {
+      "id": "coffee-drinks",
+      "label": "Coffee & Drinks",
+      "labelBm": "Coffee & Drinks"
+    }
+  ],
+  "items": [
+    {
+      "id": "tiffin-set-kampung",
+      "categoryId": "tiffin-sets",
+      "name": "Tiffin Set Kampung",
+      "description": "Our signature three-tier stack. Choose your lauk and we pack it hot.",
+      "price": 18.9,
+      "image": "/images/food/tiffin-set.jpg",
+      "tags": ["halal", "popular"],
+      "tiers": ["Nasi putih / nasi tomato", "2 lauk pilihan", "Sambal belacan & ulam"]
+    },
+    {
+      "id": "tiffin-set-ayam-berempah",
+      "categoryId": "tiffin-sets",
+      "name": "Tiffin Set Ayam Berempah",
+      "description": "Crispy spiced fried chicken stacked with rice and sambal.",
+      "price": 19.9,
+      "image": "/images/food/ayam-berempah.jpg",
+      "tags": ["halal", "popular"],
+      "tiers": ["Nasi putih", "Ayam berempah goreng", "Acar & sambal"]
+    },
+    {
+      "id": "tiffin-set-daging",
+      "categoryId": "tiffin-sets",
+      "name": "Tiffin Set Daging Masak Merah",
+      "description": "Tender beef in rich tomato gravy. A kampung classic.",
+      "price": 21.9,
+      "image": "/images/food/daging-merah.jpg",
+      "tags": ["halal"],
+      "tiers": ["Nasi putih", "Daging masak merah", "Sayur campur"]
+    },
+    {
+      "id": "sambal-goreng-tempe",
+      "categoryId": "lauk-kampung",
+      "name": "Sambal Goreng Tempe",
+      "description": "Crispy tempeh stir-fried in sweet-spicy sambal.",
+      "price": 8.9,
+      "image": "/images/food/tempe.jpg",
+      "tags": ["halal", "vegetarian"]
+    },
+    {
+      "id": "paru-goreng-berlada",
+      "categoryId": "lauk-kampung",
+      "name": "Paru Goreng Berlada",
+      "description": "Spicy fried beef lungs — a true kampung delicacy.",
+      "price": 10.9,
+      "image": "/images/food/paru.jpg",
+      "tags": ["halal", "popular"]
+    },
+    {
+      "id": "sotong-sambal-petai",
+      "categoryId": "lauk-kampung",
+      "name": "Sotong Sambal Petai",
+      "description": "Squid and stink beans in fiery sambal. Not for the faint-hearted.",
+      "price": 14.9,
+      "image": "/images/food/sotong-petai.jpg",
+      "tags": ["halal", "popular"]
+    },
+    {
+      "id": "ayam-masak-merah",
+      "categoryId": "lauk-kampung",
+      "name": "Ayam Masak Merah",
+      "description": "Chicken in thick, tangy tomato-chilli gravy.",
+      "price": 12.9,
+      "image": "/images/food/ayam-merah.jpg",
+      "tags": ["halal"]
+    },
+    {
+      "id": "aglio-olio",
+      "categoryId": "pasta",
+      "name": "Aglio Olio",
+      "description": "Garlic, olive oil, chilli flakes, and parmesan. Simple and addictive.",
+      "price": 16.9,
+      "image": "/images/food/aglio-olio.jpg",
+      "tags": ["halal", "popular"]
+    },
+    {
+      "id": "carbonara",
+      "categoryId": "pasta",
+      "name": "Creamy Carbonara",
+      "description": "Rich cream sauce with turkey ham and mushrooms.",
+      "price": 17.9,
+      "image": "/images/food/carbonara.jpg",
+      "tags": ["halal"]
+    },
+    {
+      "id": "lamb-chop",
+      "categoryId": "mains",
+      "name": "Lamb Chop",
+      "description": "Grilled lamb shoulder with black pepper sauce and mashed potatoes.",
+      "price": 19.9,
+      "image": "/images/food/lamb-chop.jpg",
+      "tags": ["halal", "popular", "under15"]
+    },
+    {
+      "id": "steak",
+      "categoryId": "mains",
+      "name": "Grilled Steak",
+      "description": "Juicy sirloin with mushroom sauce, coleslaw, and fries.",
+      "price": 19.9,
+      "image": "/images/food/steak.jpg",
+      "tags": ["halal"]
+    },
+    {
+      "id": "roti-bakar-classic",
+      "categoryId": "roti-bakar",
+      "name": "Roti Bakar Classic",
+      "description": "Thick toast with butter and kaya. The ultimate midnight snack.",
+      "price": 5.9,
+      "image": "/images/food/roti-bakar.jpg",
+      "tags": ["halal", "vegetarian", "under15"]
+    },
+    {
+      "id": "roti-bakar-cheese",
+      "categoryId": "roti-bakar",
+      "name": "Roti Bakar Cheese",
+      "description": "Grilled cheese toast with a drizzle of condensed milk.",
+      "price": 7.9,
+      "image": "/images/food/roti-cheese.jpg",
+      "tags": ["halal", "under15"]
+    },
+    {
+      "id": "pancake-tembam",
+      "categoryId": "pancakes",
+      "name": "Pancake Tembam",
+      "description": "Fluffy thick pancakes with butter and maple syrup.",
+      "price": 12.9,
+      "image": "/images/food/pancake-tembam.jpg",
+      "tags": ["halal", "popular", "vegetarian"]
+    },
+    {
+      "id": "pancake-berry",
+      "categoryId": "pancakes",
+      "name": "Berry Stack Pancake",
+      "description": "Tembam pancakes topped with fresh berries and whipped cream.",
+      "price": 15.9,
+      "image": "/images/food/pancake-berry.jpg",
+      "tags": ["halal", "vegetarian"]
+    },
+    {
+      "id": "caramel-latte",
+      "categoryId": "coffee-drinks",
+      "name": "Caramel Latte",
+      "description": "Smooth espresso with caramel and steamed milk.",
+      "price": 11.9,
+      "image": "/images/food/caramel-latte.jpg",
+      "tags": ["halal", "popular"]
+    },
+    {
+      "id": "kopi-tarik",
+      "categoryId": "coffee-drinks",
+      "name": "Kopi Tarik",
+      "description": "Traditional pulled coffee with condensed milk. Strong and creamy.",
+      "price": 6.9,
+      "image": "/images/food/kopi-tarik.jpg",
+      "tags": ["halal", "under15"]
+    },
+    {
+      "id": "teh-tarik",
+      "categoryId": "coffee-drinks",
+      "name": "Teh Tarik",
+      "description": "Malaysia's favourite pulled milk tea. Hot or iced.",
+      "price": 5.9,
+      "image": "/images/food/teh-tarik.jpg",
+      "tags": ["halal", "under15"]
+    },
+    {
+      "id": "milo-dinosaur",
+      "categoryId": "coffee-drinks",
+      "name": "Milo Dinosaur",
+      "description": "Iced Milo topped with a mountain of Milo powder.",
+      "price": 8.9,
+      "image": "/images/food/milo-dinosaur.jpg",
+      "tags": ["halal", "under15"]
+    }
+  ]
+}
