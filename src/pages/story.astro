@@ -22,12 +22,14 @@ const { address, phone, whatsapp, hours, googleMapsEmbed, googleMapsLink, social
     <!-- Story Hero -->
     <section class="relative pt-32 pb-16 sm:pt-40 sm:pb-24 bg-charcoal">
       <Container>
-        <SectionHeading
-          eyebrow="OUR STORY"
-          headline="We just missed kampung food."
-          subhead="Tiffin 55 started in 2023 with a simple idea — bring back the mangkuk tingkat. Make it cool again. Serve it hot, served late, served right."
-          align="center"
-        />
+        <ScrollReveal client:load>
+          <SectionHeading
+            eyebrow="OUR STORY"
+            headline="We just missed kampung food."
+            subhead="Tiffin 55 started in 2023 with a simple idea — bring back the mangkuk tingkat. Make it cool again. Serve it hot, served late, served right."
+            align="center"
+          />
+        </ScrollReveal>
       </Container>
     </section>
 
@@ -61,11 +63,13 @@ const { address, phone, whatsapp, hours, googleMapsEmbed, googleMapsLink, social
     <!-- The Space -->
     <section class="py-16 sm:py-24 bg-coal-brown">
       <Container>
-        <div class="text-center mb-10">
-          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-copper mb-3">The Space</p>
-          <h2 class="font-display text-3xl sm:text-4xl font-bold text-cream">Built rough on purpose.</h2>
-          <p class="mt-4 text-cream/60 max-w-xl mx-auto">Stays open till 5am on purpose.</p>
-        </div>
+        <ScrollReveal client:load>
+          <div class="text-center mb-10">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-copper mb-3">The Space</p>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold text-cream">Built rough on purpose.</h2>
+            <p class="mt-4 text-cream/60 max-w-xl mx-auto">Stays open till 5am on purpose.</p>
+          </div>
+        </ScrollReveal>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
           <div class="aspect-square rounded-sm overflow-hidden bg-charcoal">
             <img src="/images/interior/space-1.jpg" alt="Industrial interior with exposed brick" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
@@ -141,12 +145,14 @@ const { address, phone, whatsapp, hours, googleMapsEmbed, googleMapsLink, social
     <section class="py-16 sm:py-24 bg-charcoal">
       <Container>
         <div class="max-w-xl mx-auto">
-          <SectionHeading
-            eyebrow="GET IN TOUCH"
-            headline="Drop us a message"
-            subhead="Questions, feedback, or reservation requests — we'd love to hear from you."
-            align="center"
-          />
+          <ScrollReveal client:load>
+            <SectionHeading
+              eyebrow="GET IN TOUCH"
+              headline="Drop us a message"
+              subhead="Questions, feedback, or reservation requests — we'd love to hear from you."
+              align="center"
+            />
+          </ScrollReveal>
           <div class="mt-10">
             <ContactForm client:load />
           </div>
@@ -157,10 +163,12 @@ const { address, phone, whatsapp, hours, googleMapsEmbed, googleMapsLink, social
     <!-- Social CTA -->
     <section class="py-16 bg-coal-brown border-t border-concrete-grey/20">
       <Container>
-        <div class="text-center mb-10">
-          <h2 class="font-display text-2xl sm:text-3xl font-bold text-cream">Follow the vibe</h2>
-          <p class="mt-2 text-cream/60">See what we're serving tonight.</p>
-        </div>
+        <ScrollReveal client:load>
+          <div class="text-center mb-10">
+            <h2 class="font-display text-2xl sm:text-3xl font-bold text-cream">Follow the vibe</h2>
+            <p class="mt-2 text-cream/60">See what we're serving tonight.</p>
+          </div>
+        </ScrollReveal>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
           <a href={social.instagram} target="_blank" rel="noopener" class="group flex flex-col items-center gap-3 p-6 rounded-sm border border-concrete-grey/20 hover:border-copper/40 transition-colors bg-charcoal">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-copper"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>

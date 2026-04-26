@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import WhatsAppFloat from '../components/WhatsAppFloat.astro';
 import Container from '../components/Container.astro';
 import SectionHeading from '../components/SectionHeading.astro';
+import ScrollReveal from '../components/ScrollReveal';
 import MenuTabs from '../components/MenuTabs';
 import menuData from '../data/menu.json';
 
@@ -20,12 +21,14 @@ const { categories, items } = menuData;
     <!-- Menu Hero -->
     <section class="relative pt-32 pb-16 sm:pt-40 sm:pb-20 bg-charcoal">
       <Container>
-        <SectionHeading
-          eyebrow="THE MENU"
-          headline="The Menu"
-          subhead="Kampung-style. Cafe-served. Halal, always."
-          align="center"
-        />
+        <ScrollReveal client:load>
+          <SectionHeading
+            eyebrow="THE MENU"
+            headline="The Menu"
+            subhead="Kampung-style. Cafe-served. Halal, always."
+            align="center"
+          />
+        </ScrollReveal>
       </Container>
     </section>
 
@@ -39,36 +42,38 @@ const { categories, items } = menuData;
     <!-- Order CTA -->
     <section class="py-16 bg-coal-brown border-t border-concrete-grey/20">
       <Container>
-        <div class="text-center">
-          <h2 class="font-display text-3xl sm:text-4xl font-bold text-cream">Hungry yet?</h2>
-          <p class="mt-3 text-cream/60">Order via WhatsApp, FoodPanda, or GrabFood.</p>
-          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href={`https://wa.me/${import.meta.env.PUBLIC_WHATSAPP_NUMBER || '60123456789'}?text=Hi%20Tiffin%2055!%20I%20want%20to%20order.`}
-              target="_blank"
-              rel="noopener"
-              class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-copper text-charcoal font-medium rounded-sm hover:bg-copper/90 transition-all"
-            >
-              WhatsApp Order
-            </a>
-            <a
-              href="https://foodpanda.my"
-              target="_blank"
-              rel="noopener"
-              class="inline-flex items-center justify-center gap-2 px-6 py-3 border border-copper text-copper font-medium rounded-sm hover:bg-copper/10 transition-all"
-            >
-              FoodPanda
-            </a>
-            <a
-              href="https://grab.com/my/food"
-              target="_blank"
-              rel="noopener"
-              class="inline-flex items-center justify-center gap-2 px-6 py-3 border border-copper text-copper font-medium rounded-sm hover:bg-copper/10 transition-all"
-            >
-              GrabFood
-            </a>
+        <ScrollReveal client:load>
+          <div class="text-center">
+            <h2 class="font-display text-3xl sm:text-4xl font-bold text-cream">Hungry yet?</h2>
+            <p class="mt-3 text-cream/60">Order via WhatsApp, FoodPanda, or GrabFood.</p>
+            <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href={`https://wa.me/${import.meta.env.PUBLIC_WHATSAPP_NUMBER || '60123456789'}?text=Hi%20Tiffin%2055!%20I%20want%20to%20order.`}
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-copper text-charcoal font-medium rounded-sm hover:bg-copper/90 transition-all"
+              >
+                WhatsApp Order
+              </a>
+              <a
+                href="https://foodpanda.my"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center gap-2 px-6 py-3 border border-copper text-copper font-medium rounded-sm hover:bg-copper/10 transition-all"
+              >
+                FoodPanda
+              </a>
+              <a
+                href="https://grab.com/my/food"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center gap-2 px-6 py-3 border border-copper text-copper font-medium rounded-sm hover:bg-copper/10 transition-all"
+              >
+                GrabFood
+              </a>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </Container>
     </section>
   </main>
