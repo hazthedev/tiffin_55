@@ -1,54 +1,96 @@
 ---
 import Container from '../components/Container.astro';
 import ScrollReveal from '../components/ScrollReveal';
-
-const images = [
-  { src: '/images/interior/vibe-1.jpg', alt: 'Industrial interior with exposed brick walls', size: 'col-span-2 row-span-2' },
-  { src: '/images/interior/vibe-2.jpg', alt: 'Close up of caramel latte art', size: 'col-span-1 row-span-1' },
-  { src: '/images/interior/vibe-3.jpg', alt: 'Edison bulb lighting over dark wood tables', size: 'col-span-1 row-span-1' },
-  { src: '/images/interior/vibe-4.jpg', alt: 'Mangkuk tingkat from above', size: 'col-span-1 row-span-1' },
-  { src: '/images/interior/vibe-5.jpg', alt: 'Late night crowd lepak at Tiffin 55', size: 'col-span-1 row-span-1' },
-];
 ---
 
-<section class="py-16 sm:py-24 bg-charcoal">
-  <Container>
+<section class="relative py-16 sm:py-24 bg-tile-mosaic overflow-hidden">
+  <div class="absolute inset-0 bg-cobalt opacity-90"></div>
+  <div class="absolute inset-0 bg-halftone-cobalt opacity-80"></div>
+
+  <Container class="relative">
     <ScrollReveal client:load>
-    <div class="text-center mb-10">
-      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-copper mb-3">The Vibe</p>
-      <h2 class="font-display text-3xl sm:text-4xl font-bold text-cream">Raw, warm, open late.</h2>
-    </div>
+      <div class="text-center mb-12">
+        <span class="stamp text-turmeric !bg-ink-blue !text-turmeric" data-anime="stamp">The Vibe</span>
+        <h2 class="mt-5 font-display text-4xl sm:text-5xl text-cream-paper leading-tight">
+          Raw, warm, <span class="text-turmeric">open late.</span>
+        </h2>
+      </div>
     </ScrollReveal>
-    <div class="grid grid-cols-2 sm:grid-cols-4 auto-rows-[180px] sm:auto-rows-[200px] gap-3 sm:gap-4">
-      <div class="col-span-2 row-span-2 rounded-sm overflow-hidden bg-coal-brown group relative">
-        <img src={images[0].src} alt={images[0].alt} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-        <div class="absolute inset-0 bg-charcoal/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
-          <span class="text-cream text-sm font-medium">Industrial soul</span>
-        </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-4 auto-rows-[180px] sm:auto-rows-[200px] gap-4">
+      <!-- Big tile: Bombay railway poster styled lotus chakra -->
+      <div class="col-span-2 row-span-2 block-card-cobalt bg-turmeric relative overflow-hidden flex items-center justify-center">
+        <svg viewBox="0 0 400 400" class="w-full h-full" aria-label="Lotus chakra wheel" role="img">
+          <rect width="400" height="400" fill="#f6c343"/>
+          <g transform="translate(200 200)">
+            <circle r="160" fill="none" stroke="#0E1430" stroke-width="4"/>
+            {Array.from({ length: 24 }).map((_, i) => (
+              <line x1="0" y1="-160" x2="0" y2="-110" stroke="#0E1430" stroke-width="3" transform={`rotate(${i * 15})`}/>
+            ))}
+            <circle r="100" fill="#d83d2c" stroke="#0E1430" stroke-width="3"/>
+            {Array.from({ length: 8 }).map((_, i) => (
+              <ellipse rx="18" ry="55" cx="0" cy="-50" fill="#fff5e1" stroke="#0E1430" stroke-width="3" transform={`rotate(${i * 45})`}/>
+            ))}
+            <circle r="32" fill="#1c3aa9" stroke="#0E1430" stroke-width="3"/>
+            <text text-anchor="middle" y="6" font-family="Bungee" font-size="22" fill="#f6c343">55</text>
+          </g>
+          <text x="200" y="36" text-anchor="middle" font-family="Bungee" font-size="20" fill="#0E1430">INDUSTRIAL · SOUL</text>
+          <text x="200" y="380" text-anchor="middle" font-family="Bungee" font-size="14" fill="#0E1430">WANGSA · MAJU · KL</text>
+        </svg>
       </div>
-      <div class="col-span-1 row-span-1 rounded-sm overflow-hidden bg-coal-brown group relative">
-        <img src={images[1].src} alt={images[1].alt} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-        <div class="absolute inset-0 bg-charcoal/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-          <span class="text-cream text-xs font-medium">Brewed hot</span>
-        </div>
+
+      <!-- Tile: brewed hot -->
+      <div class="block-card-cobalt bg-cream-paper relative overflow-hidden flex items-center justify-center">
+        <svg viewBox="0 0 200 200" class="w-full h-full" aria-label="Brewed hot — coffee" role="img">
+          <rect width="200" height="200" fill="#fff5e1"/>
+          <path d="M70 35 Q60 55 80 75" stroke="#d83d2c" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M110 30 Q100 50 120 70" stroke="#d83d2c" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M55 90 L70 170 Q100 180 130 170 L145 90 Z" fill="#1c3aa9" stroke="#0E1430" stroke-width="3"/>
+          <ellipse cx="100" cy="90" rx="45" ry="9" fill="#f6c343" stroke="#0E1430" stroke-width="3"/>
+          <path d="M145 110 Q165 120 160 145 Q150 160 138 152" stroke="#0E1430" stroke-width="3" fill="none"/>
+          <text x="100" y="194" text-anchor="middle" font-family="Bungee" font-size="11" fill="#0E1430">BREWED HOT</text>
+        </svg>
       </div>
-      <div class="col-span-1 row-span-1 rounded-sm overflow-hidden bg-coal-brown group relative">
-        <img src={images[2].src} alt={images[2].alt} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-        <div class="absolute inset-0 bg-charcoal/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-          <span class="text-cream text-xs font-medium">Warm glow</span>
-        </div>
+
+      <!-- Tile: warm glow / Edison bulb -->
+      <div class="block-card-cobalt bg-chili relative overflow-hidden flex items-center justify-center">
+        <svg viewBox="0 0 200 200" class="w-full h-full" aria-label="Warm glow Edison bulb" role="img">
+          <rect width="200" height="200" fill="#d83d2c"/>
+          <line x1="100" y1="0" x2="100" y2="40" stroke="#0E1430" stroke-width="3"/>
+          <rect x="85" y="40" width="30" height="22" fill="#c9c9c9" stroke="#0E1430" stroke-width="3"/>
+          <ellipse cx="100" cy="115" rx="48" ry="58" fill="#f6c343" stroke="#0E1430" stroke-width="3"/>
+          <path d="M75 100 Q100 90 125 100 M75 115 Q100 105 125 115 M75 130 Q100 120 125 130" stroke="#0E1430" stroke-width="2" fill="none"/>
+          <text x="100" y="194" text-anchor="middle" font-family="Bungee" font-size="11" fill="#fff5e1">WARM GLOW</text>
+        </svg>
       </div>
-      <div class="col-span-1 row-span-1 rounded-sm overflow-hidden bg-coal-brown group relative">
-        <img src={images[3].src} alt={images[3].alt} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-        <div class="absolute inset-0 bg-charcoal/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-          <span class="text-cream text-xs font-medium">Stacked</span>
-        </div>
+
+      <!-- Tile: stacked -->
+      <div class="block-card-cobalt bg-turmeric relative overflow-hidden flex items-center justify-center">
+        <svg viewBox="0 0 200 200" class="w-full h-full" aria-label="Stacked tiffin" role="img">
+          <rect width="200" height="200" fill="#f6c343"/>
+          <rect x="80" y="20" width="40" height="9" fill="#c9c9c9" stroke="#0E1430" stroke-width="2.5"/>
+          <rect x="50" y="40" width="100" height="36" fill="#fff5e1" stroke="#0E1430" stroke-width="2.5"/>
+          <rect x="50" y="80" width="100" height="36" fill="#1c3aa9" stroke="#0E1430" stroke-width="2.5"/>
+          <rect x="50" y="120" width="100" height="36" fill="#d83d2c" stroke="#0E1430" stroke-width="2.5"/>
+          <rect x="46" y="160" width="108" height="9" fill="#c9c9c9" stroke="#0E1430" stroke-width="2.5"/>
+          <text x="100" y="194" text-anchor="middle" font-family="Bungee" font-size="11" fill="#0E1430">STACKED</text>
+        </svg>
       </div>
-      <div class="col-span-1 row-span-1 rounded-sm overflow-hidden bg-coal-brown group relative">
-        <img src={images[4].src} alt={images[4].alt} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-        <div class="absolute inset-0 bg-charcoal/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-          <span class="text-cream text-xs font-medium">Lepak ready</span>
-        </div>
+
+      <!-- Tile: lepak ready / train ticket -->
+      <div class="block-card-cobalt bg-cream-paper relative overflow-hidden flex items-center justify-center">
+        <svg viewBox="0 0 200 200" class="w-full h-full" aria-label="Train ticket stamp" role="img">
+          <rect width="200" height="200" fill="#fff5e1"/>
+          <rect x="20" y="50" width="160" height="100" fill="#fff5e1" stroke="#0E1430" stroke-width="3" stroke-dasharray="4 3"/>
+          <line x1="120" y1="50" x2="120" y2="150" stroke="#0E1430" stroke-width="3" stroke-dasharray="4 3"/>
+          <text x="70" y="80" text-anchor="middle" font-family="Bungee" font-size="13" fill="#0E1430">TIFFIN</text>
+          <text x="70" y="110" text-anchor="middle" font-family="Bungee" font-size="22" fill="#d83d2c">55</text>
+          <text x="70" y="135" text-anchor="middle" font-family="Bungee" font-size="9" fill="#0E1430">ADMIT 1 SUPPER</text>
+          <circle cx="150" cy="100" r="22" fill="none" stroke="#1c3aa9" stroke-width="3"/>
+          <text x="150" y="96" text-anchor="middle" font-family="Bungee" font-size="8" fill="#1c3aa9">LEPAK</text>
+          <text x="150" y="108" text-anchor="middle" font-family="Bungee" font-size="11" fill="#1c3aa9">3AM</text>
+          <text x="100" y="194" text-anchor="middle" font-family="Bungee" font-size="11" fill="#0E1430">LEPAK READY</text>
+        </svg>
       </div>
     </div>
   </Container>

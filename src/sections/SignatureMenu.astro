@@ -1,6 +1,5 @@
 ---
 import Container from '../components/Container.astro';
-import SectionHeading from '../components/SectionHeading.astro';
 import ScrollReveal from '../components/ScrollReveal';
 
 const signatures = [
@@ -8,72 +7,157 @@ const signatures = [
     name: 'Tiffin Set Kampung',
     desc: 'Three tiers of rice, lauk, and sambal. Choose your combo.',
     price: 18.90,
-    image: '/images/food/tiffin-set.jpg',
+    accent: 'turmeric',
+    icon: 'tiffin',
   },
   {
     name: 'Aglio Olio',
     desc: 'Garlic, olive oil, chilli flakes, and parmesan. Simple and addictive.',
     price: 16.90,
-    image: '/images/food/aglio-olio.jpg',
+    accent: 'chili',
+    icon: 'pasta',
   },
   {
     name: 'Caramel Latte',
     desc: 'Smooth espresso with caramel and steamed milk. Our bestseller.',
     price: 11.90,
-    image: '/images/food/caramel-latte.jpg',
+    accent: 'cobalt',
+    icon: 'cup',
   },
   {
     name: 'Pancake Tembam',
     desc: 'Fluffy thick pancakes with butter and maple syrup.',
     price: 12.90,
-    image: '/images/food/pancake-tembam.jpg',
+    accent: 'cardamom',
+    icon: 'pancake',
   },
   {
     name: 'Lamb Chop',
     desc: 'Grilled lamb shoulder with black pepper sauce. Under RM20.',
     price: 19.90,
-    image: '/images/food/lamb-chop.jpg',
+    accent: 'chili',
+    icon: 'plate',
   },
   {
     name: 'Roti Bakar Classic',
     desc: 'Thick toast with butter and kaya. The ultimate midnight snack.',
     price: 5.90,
-    image: '/images/food/roti-bakar.jpg',
+    accent: 'turmeric',
+    icon: 'toast',
   },
-];
+] as const;
+
+const accentBg: Record<string, string> = {
+  turmeric: 'bg-turmeric',
+  chili: 'bg-chili',
+  cobalt: 'bg-cobalt',
+  cardamom: 'bg-cardamom',
+};
+const accentText: Record<string, string> = {
+  turmeric: 'text-ink-blue',
+  chili: 'text-cream-paper',
+  cobalt: 'text-cream-paper',
+  cardamom: 'text-cream-paper',
+};
 ---
 
-<section class="py-16 sm:py-24 bg-coal-brown">
-  <Container>
+<section class="relative py-16 sm:py-24 bg-cream-paper overflow-hidden">
+  <div class="absolute inset-0 bg-halftone pointer-events-none opacity-40"></div>
+
+  <Container class="relative">
     <ScrollReveal client:load>
-    <SectionHeading
-      eyebrow="FROM THE MENU"
-      headline="The ones they keep ordering."
-      align="center"
-    />
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="stamp text-cobalt" data-anime="stamp">From the Menu</span>
+        <h2 class="mt-5 font-display text-4xl sm:text-5xl lg:text-6xl text-ink-blue leading-[0.95]">
+          The ones they keep <span class="text-chili">ordering.</span>
+        </h2>
+      </div>
     </ScrollReveal>
-    <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {signatures.map((item) => (
-        <a href="/menu" class="group block rounded-sm overflow-hidden bg-charcoal border border-concrete-grey/10 hover:border-copper/30 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(197,100,45,0.12)]">
-          <div class="aspect-[4/3] overflow-hidden bg-coal-brown">
-            <img src={item.image} alt={item.name} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+
+    <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+      {signatures.map((item, i) => (
+        <a href="/menu" class={`group block-card ${accentBg[item.accent]} ${accentText[item.accent]} overflow-hidden chrome-shine`}>
+          <div class={`relative aspect-[4/3] flex items-center justify-center border-b-2 border-ink-blue`}>
+            <!-- Halftone overlay -->
+            <div class="absolute inset-0 opacity-25 bg-halftone pointer-events-none"></div>
+
+            {item.icon === 'tiffin' && (
+              <svg viewBox="0 0 160 160" class="w-32 h-32 relative" aria-hidden="true">
+                <rect x="65" y="20" width="30" height="8" fill="#c9c9c9" stroke="#0E1430" stroke-width="2.5"/>
+                <rect x="40" y="35" width="80" height="32" fill="#fff5e1" stroke="#0E1430" stroke-width="2.5"/>
+                <rect x="40" y="70" width="80" height="32" fill="#d83d2c" stroke="#0E1430" stroke-width="2.5"/>
+                <rect x="40" y="105" width="80" height="32" fill="#1c3aa9" stroke="#0E1430" stroke-width="2.5"/>
+                <rect x="36" y="138" width="88" height="9" fill="#c9c9c9" stroke="#0E1430" stroke-width="2.5"/>
+              </svg>
+            )}
+            {item.icon === 'pasta' && (
+              <svg viewBox="0 0 160 160" class="w-32 h-32 relative" aria-hidden="true">
+                <ellipse cx="80" cy="100" rx="60" ry="14" fill="#0E1430"/>
+                <ellipse cx="80" cy="92" rx="60" ry="22" fill="#fff5e1" stroke="#0E1430" stroke-width="2.5"/>
+                <path d="M30 88 Q50 70 80 80 Q110 90 130 80" stroke="#f6c343" stroke-width="3.5" fill="none"/>
+                <path d="M35 92 Q60 80 90 90 Q120 100 128 86" stroke="#f6c343" stroke-width="3.5" fill="none"/>
+                <circle cx="60" cy="80" r="3" fill="#d83d2c"/>
+                <circle cx="100" cy="78" r="3" fill="#d83d2c"/>
+                <circle cx="80" cy="86" r="3" fill="#6b8e4e"/>
+              </svg>
+            )}
+            {item.icon === 'cup' && (
+              <svg viewBox="0 0 160 160" class="w-32 h-32 relative" aria-hidden="true">
+                <path d="M50 30 Q44 18 56 14" stroke="#fff5e1" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <path d="M80 28 Q74 14 88 10" stroke="#fff5e1" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <path d="M40 50 L50 130 Q80 144 110 130 L120 50 Z" fill="#fff5e1" stroke="#0E1430" stroke-width="3"/>
+                <ellipse cx="80" cy="50" rx="40" ry="9" fill="#f6c343" stroke="#0E1430" stroke-width="3"/>
+                <path d="M120 70 Q140 78 138 100 Q132 118 118 110" stroke="#0E1430" stroke-width="3" fill="none"/>
+              </svg>
+            )}
+            {item.icon === 'pancake' && (
+              <svg viewBox="0 0 160 160" class="w-32 h-32 relative" aria-hidden="true">
+                <ellipse cx="80" cy="105" rx="55" ry="10" fill="#fff5e1" stroke="#0E1430" stroke-width="2.5"/>
+                <ellipse cx="80" cy="92" rx="55" ry="12" fill="#f6c343" stroke="#0E1430" stroke-width="2.5"/>
+                <ellipse cx="80" cy="78" rx="52" ry="11" fill="#f6c343" stroke="#0E1430" stroke-width="2.5"/>
+                <ellipse cx="80" cy="65" rx="48" ry="10" fill="#f6c343" stroke="#0E1430" stroke-width="2.5"/>
+                <rect x="65" y="40" width="30" height="22" fill="#f6c343" stroke="#0E1430" stroke-width="2.5"/>
+                <path d="M55 60 Q80 45 105 60 Q90 75 80 70 Q70 75 55 60 Z" fill="#d83d2c" stroke="#0E1430" stroke-width="2.5"/>
+              </svg>
+            )}
+            {item.icon === 'plate' && (
+              <svg viewBox="0 0 160 160" class="w-32 h-32 relative" aria-hidden="true">
+                <ellipse cx="80" cy="95" rx="65" ry="14" fill="#0E1430"/>
+                <ellipse cx="80" cy="85" rx="65" ry="18" fill="#fff5e1" stroke="#0E1430" stroke-width="2.5"/>
+                <ellipse cx="80" cy="80" rx="48" ry="10" fill="#f6c343" stroke="#0E1430" stroke-width="2.5"/>
+                <path d="M60 70 Q70 56 90 60 Q104 70 96 84 Q80 90 64 82 Z" fill="#d83d2c" stroke="#0E1430" stroke-width="2.5"/>
+                <line x1="60" y1="68" x2="100" y2="76" stroke="#0E1430" stroke-width="1.5"/>
+                <circle cx="55" cy="80" r="3" fill="#6b8e4e"/>
+                <circle cx="110" cy="80" r="3" fill="#6b8e4e"/>
+              </svg>
+            )}
+            {item.icon === 'toast' && (
+              <svg viewBox="0 0 160 160" class="w-32 h-32 relative" aria-hidden="true">
+                <path d="M30 60 Q35 45 50 45 L110 45 Q125 45 130 60 L130 120 L30 120 Z" fill="#f6c343" stroke="#0E1430" stroke-width="3"/>
+                <path d="M40 70 L120 70 L120 110 L40 110 Z" fill="#fff5e1" stroke="#0E1430" stroke-width="2"/>
+                <circle cx="60" cy="85" r="4" fill="#d83d2c"/>
+                <circle cx="80" cy="92" r="4" fill="#6b8e4e"/>
+                <circle cx="100" cy="85" r="4" fill="#1c3aa9"/>
+              </svg>
+            )}
           </div>
-          <div class="p-5">
+          <div class="p-5 bg-cream-paper text-ink-blue">
             <div class="flex items-start justify-between gap-3">
-              <h3 class="font-display text-lg font-semibold text-cream group-hover:text-copper transition-colors">{item.name}</h3>
-              <span class="font-mono text-sm text-copper shrink-0">RM {item.price.toFixed(2)}</span>
+              <h3 class="font-display text-lg leading-tight group-hover:text-chili transition-colors">{item.name}</h3>
+              <span class="font-mono text-sm bg-ink-blue text-cream-paper px-2 py-1 shrink-0">RM {item.price.toFixed(2)}</span>
             </div>
-            <p class="mt-2 text-sm text-cream/60 leading-relaxed">{item.desc}</p>
+            <p class="mt-2 text-sm text-ink-blue/70 leading-relaxed font-medium">{item.desc}</p>
           </div>
         </a>
       ))}
     </div>
-    <div class="mt-10 text-center">
+
+    <div class="mt-12 text-center">
       <ScrollReveal client:load delay={0.2}>
-      <a href="/menu" class="inline-flex items-center gap-2 text-sm font-medium text-copper hover:text-cream transition-colors">
-        View full menu
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-      </a>
+        <a href="/menu" class="inline-flex items-center gap-2 chrome-rim border-2 border-ink-blue px-6 py-3 font-display text-xs uppercase tracking-[0.2em] chrome-shine">
+          View full menu
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </a>
       </ScrollReveal>
     </div>
   </Container>

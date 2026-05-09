@@ -4,48 +4,100 @@ import Button from '../components/Button.astro';
 import StaggerHero from '../components/StaggerHero';
 ---
 
-<section class="relative min-h-dvh flex items-center justify-center overflow-hidden bg-charcoal">
-  <!-- Background image with overlay -->
-  <div class="absolute inset-0">
-    <img
-      src="/images/tiffin/tiffin-hero.jpg"
-      alt="Mangkuk tingkat being unstacked at Tiffin 55"
-      class="w-full h-full object-cover"
-    />
-    <div class="absolute inset-0 bg-charcoal/70"></div>
-  </div>
+<section class="relative min-h-dvh flex items-center justify-center overflow-hidden bg-spice-burst">
+  <!-- Halftone overlay -->
+  <div class="absolute inset-0 bg-halftone pointer-events-none opacity-60"></div>
+
+  <!-- Cobalt mosaic stripe edge (top + bottom) -->
+  <div class="absolute top-0 left-0 right-0 h-2 bg-tile-mosaic"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-2 bg-tile-mosaic"></div>
+
+  <!-- Decorative SVG: stacked tiffin tin (left) -->
+  <svg
+    class="hidden md:block absolute left-4 lg:left-10 top-1/2 -translate-y-1/2 w-40 lg:w-56 opacity-90 tiffin-spin"
+    viewBox="0 0 200 260"
+    aria-hidden="true"
+    fill="none"
+  >
+    <!-- handle -->
+    <rect x="80" y="10" width="40" height="10" rx="2" fill="#c9c9c9" stroke="#0E1430" stroke-width="2.5"/>
+    <line x1="100" y1="20" x2="100" y2="40" stroke="#0E1430" stroke-width="3"/>
+    <!-- tier 1 -->
+    <rect x="40" y="40" width="120" height="58" rx="4" fill="#f6c343" stroke="#0E1430" stroke-width="3"/>
+    <rect x="36" y="40" width="128" height="10" rx="2" fill="#c9c9c9" stroke="#0E1430" stroke-width="3"/>
+    <circle cx="65" cy="72" r="6" fill="#d83d2c" stroke="#0E1430" stroke-width="2"/>
+    <circle cx="100" cy="72" r="6" fill="#1c3aa9" stroke="#0E1430" stroke-width="2"/>
+    <circle cx="135" cy="72" r="6" fill="#6b8e4e" stroke="#0E1430" stroke-width="2"/>
+    <!-- tier 2 -->
+    <rect x="40" y="100" width="120" height="58" rx="4" fill="#d83d2c" stroke="#0E1430" stroke-width="3"/>
+    <rect x="36" y="100" width="128" height="10" rx="2" fill="#c9c9c9" stroke="#0E1430" stroke-width="3"/>
+    <path d="M55 138 L75 124 L95 138 L115 124 L135 138 L145 130" stroke="#fff5e1" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- tier 3 -->
+    <rect x="40" y="160" width="120" height="58" rx="4" fill="#1c3aa9" stroke="#0E1430" stroke-width="3"/>
+    <rect x="36" y="160" width="128" height="10" rx="2" fill="#c9c9c9" stroke="#0E1430" stroke-width="3"/>
+    <text x="100" y="198" text-anchor="middle" font-family="Bungee" font-size="18" fill="#f6c343">55</text>
+    <!-- base -->
+    <rect x="36" y="220" width="128" height="14" rx="3" fill="#c9c9c9" stroke="#0E1430" stroke-width="3"/>
+    <rect x="60" y="234" width="80" height="10" rx="2" fill="#0E1430"/>
+  </svg>
+
+  <!-- Decorative SVG: half-tone sun-burst badge (right) -->
+  <svg
+    class="hidden md:block absolute right-6 lg:right-16 top-24 w-32 lg:w-40 opacity-95"
+    viewBox="0 0 200 200"
+    aria-hidden="true"
+    data-anime="wobble"
+  >
+    <g transform="translate(100 100)">
+      {Array.from({ length: 16 }).map((_, i) => (
+        <rect
+          x="-3"
+          y="-95"
+          width="6"
+          height="28"
+          fill="#d83d2c"
+          transform={`rotate(${i * 22.5})`}
+        />
+      ))}
+      <circle cx="0" cy="0" r="62" fill="#f6c343" stroke="#0E1430" stroke-width="3"/>
+      <text text-anchor="middle" y="-6" font-family="Bungee" font-size="14" fill="#0E1430">TIFFIN</text>
+      <text text-anchor="middle" y="14" font-family="Bungee" font-size="22" fill="#d83d2c">55</text>
+      <text text-anchor="middle" y="34" font-family="Bungee" font-size="9" fill="#0E1430">EST 2023</text>
+    </g>
+  </svg>
 
   <!-- Content -->
   <Container class="relative z-10 py-32">
-    <div class="max-w-3xl">
+    <div class="max-w-3xl mx-auto md:mx-0 md:ml-auto md:pr-8 lg:pr-16 text-center md:text-left">
       <StaggerHero client:load delay={0.1}>
-        <p class="text-copper text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] mb-4">
-          Wangsa Maju &middot; Open till 3am
-        </p>
+        <span class="stamp text-chili" data-anime="stamp">
+          Wangsa Maju · Open till 3am
+        </span>
       </StaggerHero>
       <StaggerHero client:load delay={0.2}>
-        <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-cream leading-[1.05] tracking-tight">
-          Kampung flavors.<br />
-          <span class="text-copper">City vibes.</span>
+        <h1 class="mt-6 font-display text-5xl sm:text-6xl lg:text-[5.5rem] leading-[0.92] text-ink-blue">
+          <span class="block">Kampung</span>
+          <span class="block text-chili">flavors.</span>
+          <span class="block font-sign text-cobalt text-4xl sm:text-5xl lg:text-7xl mt-2">City vibes.</span>
         </h1>
       </StaggerHero>
       <StaggerHero client:load delay={0.35}>
-        <p class="mt-6 text-base sm:text-lg text-cream/80 max-w-xl leading-relaxed">
+        <p class="mt-6 text-base sm:text-lg text-ink-blue/80 max-w-xl md:ml-auto leading-relaxed font-medium">
           Authentic Malay food, served the way grandma did — stacked, hot, and made for sharing.
         </p>
       </StaggerHero>
       <StaggerHero client:load delay={0.5}>
-        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 md:justify-end justify-center">
           <Button variant="primary" href="/menu">See the Menu</Button>
-          <Button variant="outline" href="/story#visit">Find Us</Button>
+          <Button variant="chrome" href="/story#visit">Find Us</Button>
         </div>
       </StaggerHero>
     </div>
 
     <!-- Decorative handwritten tagline -->
-    <div class="absolute bottom-10 right-5 sm:right-10 lg:right-16 rotate-[-6deg]">
-      <p class="font-accent text-2xl sm:text-3xl text-copper opacity-90">
-        meet &middot; mingle &middot; makan
+    <div class="absolute bottom-10 right-5 sm:right-10 lg:right-16 -rotate-6 hidden sm:block">
+      <p class="font-accent text-2xl sm:text-3xl text-chili">
+        meet · mingle · makan
       </p>
     </div>
   </Container>

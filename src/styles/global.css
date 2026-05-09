@@ -1,6 +1,19 @@
+/* Retro-futuristic diner x Indian fusion technicolor — Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Monoton&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Outfit:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Caveat:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --chrome: #c9c9c9;
+  --turmeric: #f6c343;
+  --chili: #d83d2c;
+  --cobalt: #1c3aa9;
+  --cardamom: #6b8e4e;
+  --cream: #fff5e1;
+  --ink: #0E1430;
+}
 
 @layer base {
   html {
@@ -10,10 +23,155 @@
   }
 
   body {
-    @apply bg-charcoal text-cream font-body;
+    background-color: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', 'Outfit', system-ui, sans-serif;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(28, 58, 169, 0.16) 1px, transparent 0);
+    background-size: 22px 22px;
   }
 
   ::selection {
-    @apply bg-copper/30 text-cream;
+    background-color: var(--turmeric);
+    color: var(--ink);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Bungee', system-ui, sans-serif;
+    letter-spacing: 0.01em;
+  }
+}
+
+@layer utilities {
+  /* Half-tone dot pattern for full-bleed sections */
+  .bg-halftone {
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(14, 20, 48, 0.18) 1.2px, transparent 0);
+    background-size: 18px 18px;
+  }
+
+  .bg-halftone-cream {
+    background-color: var(--cream);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(216, 61, 44, 0.18) 1.2px, transparent 0);
+    background-size: 16px 16px;
+  }
+
+  .bg-halftone-cobalt {
+    background-color: var(--cobalt);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(255, 245, 225, 0.16) 1.2px, transparent 0);
+    background-size: 18px 18px;
+  }
+
+  .bg-halftone-chili {
+    background-color: var(--chili);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(255, 245, 225, 0.18) 1.2px, transparent 0);
+    background-size: 18px 18px;
+  }
+
+  /* Cobalt tile mosaic edge */
+  .bg-tile-mosaic {
+    background-color: var(--cobalt);
+    background-image:
+      linear-gradient(45deg, rgba(255,245,225,0.10) 25%, transparent 25%, transparent 75%, rgba(255,245,225,0.10) 75%),
+      linear-gradient(45deg, rgba(255,245,225,0.10) 25%, transparent 25%, transparent 75%, rgba(255,245,225,0.10) 75%);
+    background-size: 24px 24px;
+    background-position: 0 0, 12px 12px;
+  }
+
+  /* Spice-burst gradient blob (warm, never AI purple) */
+  .bg-spice-burst {
+    background:
+      radial-gradient(circle at 18% 22%, rgba(246, 195, 67, 0.6), transparent 38%),
+      radial-gradient(circle at 80% 10%, rgba(216, 61, 44, 0.45), transparent 42%),
+      radial-gradient(circle at 70% 80%, rgba(28, 58, 169, 0.55), transparent 45%),
+      var(--cream);
+  }
+
+  /* Chrome rim effect for badges / buttons */
+  .chrome-rim {
+    background:
+      linear-gradient(180deg, #ffffff 0%, #c9c9c9 35%, #8e9092 55%, #c9c9c9 70%, #ffffff 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.9),
+      inset 0 -2px 4px rgba(14,20,48,0.4),
+      0 4px 14px rgba(14,20,48,0.35);
+    color: var(--ink);
+  }
+
+  /* Chrome shine sweep on hover */
+  .chrome-shine {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .chrome-shine::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.55) 50%, transparent 70%);
+    transform: translateX(-120%) skewX(-18deg);
+    transition: transform 0.8s ease;
+    pointer-events: none;
+  }
+  .chrome-shine:hover::after {
+    transform: translateX(220%) skewX(-18deg);
+  }
+
+  /* Stamp-style geometric badge */
+  .stamp {
+    border: 2.5px solid currentColor;
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-family: 'Bungee', sans-serif;
+    font-size: 0.7rem;
+    display: inline-block;
+    background: var(--cream);
+    box-shadow: 3px 3px 0 0 currentColor;
+  }
+
+  /* Color-block hard shadow card */
+  .block-card {
+    border: 2px solid var(--ink);
+    box-shadow: 6px 6px 0 0 var(--ink);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .block-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 9px 9px 0 0 var(--ink);
+  }
+  .block-card-cobalt {
+    border: 2px solid var(--cobalt);
+    box-shadow: 6px 6px 0 0 var(--cobalt);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .block-card-cobalt:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 9px 9px 0 0 var(--cobalt);
+  }
+  .block-card-chili {
+    border: 2px solid var(--chili);
+    box-shadow: 6px 6px 0 0 var(--chili);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .block-card-chili:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 9px 9px 0 0 var(--chili);
+  }
+
+  /* Tiffin tin spinner */
+  .tiffin-spin {
+    animation: spin 18s linear infinite;
+    transform-origin: center;
+  }
+
+  /* Marquee track */
+  .marquee-track {
+    display: inline-flex;
+    white-space: nowrap;
   }
 }

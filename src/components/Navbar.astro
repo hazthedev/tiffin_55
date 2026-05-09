@@ -3,21 +3,24 @@ import Container from './Container.astro';
 import Button from './Button.astro';
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-250" id="navbar">
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-250 bg-cream-paper/85 backdrop-blur-sm border-b-2 border-ink-blue" id="navbar">
   <Container>
-    <nav class="flex items-center justify-between py-4 lg:py-5">
-      <!-- Wordmark -->
-      <a href="/" class="font-display text-xl sm:text-2xl font-bold text-cream tracking-tight hover:text-copper transition-colors">
-        Tiffin 55
+    <nav class="flex items-center justify-between py-3 lg:py-4">
+      <!-- Wordmark with chrome plate -->
+      <a href="/" class="group inline-flex items-center gap-2">
+        <span class="chrome-rim inline-flex items-center justify-center w-9 h-9 border-2 border-ink-blue font-display text-sm">55</span>
+        <span class="font-display text-lg sm:text-xl text-ink-blue tracking-tight group-hover:text-chili transition-colors">
+          TIFFIN<span class="text-chili">·</span>55
+        </span>
       </a>
 
       <!-- Desktop links -->
-      <div class="hidden md:flex items-center gap-8">
-        <a href="/" class="text-sm font-medium text-cream/80 hover:text-copper transition-colors">Home</a>
-        <a href="/menu" class="text-sm font-medium text-cream/80 hover:text-copper transition-colors">Menu</a>
-        <a href="/story" class="text-sm font-medium text-cream/80 hover:text-copper transition-colors">Story</a>
-        <a href="/story#visit" class="text-sm font-medium text-cream/80 hover:text-copper transition-colors">Visit</a>
-        <Button variant="primary" href={`https://wa.me/${import.meta.env.PUBLIC_WHATSAPP_NUMBER || '60123456789'}?text=Hi%20Tiffin%2055!`} target="_blank" rel="noopener" class="text-xs px-4 py-2">
+      <div class="hidden md:flex items-center gap-7">
+        <a href="/" class="text-xs font-display uppercase tracking-[0.18em] text-ink-blue hover:text-chili transition-colors">Home</a>
+        <a href="/menu" class="text-xs font-display uppercase tracking-[0.18em] text-ink-blue hover:text-chili transition-colors">Menu</a>
+        <a href="/story" class="text-xs font-display uppercase tracking-[0.18em] text-ink-blue hover:text-chili transition-colors">Story</a>
+        <a href="/story#visit" class="text-xs font-display uppercase tracking-[0.18em] text-ink-blue hover:text-chili transition-colors">Visit</a>
+        <Button variant="primary" href={`https://wa.me/${import.meta.env.PUBLIC_WHATSAPP_NUMBER || '60123456789'}?text=Hi%20Tiffin%2055!`} target="_blank" rel="noopener" class="!text-[10px] !px-4 !py-2">
           WhatsApp
         </Button>
       </div>
@@ -25,11 +28,11 @@ import Button from './Button.astro';
       <!-- Mobile hamburger -->
       <button
         id="menu-toggle"
-        class="md:hidden text-cream p-2"
+        class="md:hidden text-ink-blue p-2"
         aria-label="Open menu"
         aria-expanded="false"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
     </nav>
   </Container>
@@ -37,19 +40,20 @@ import Button from './Button.astro';
   <!-- Mobile drawer -->
   <div
     id="mobile-menu"
-    class="fixed inset-0 bg-charcoal/95 backdrop-blur-md md:hidden opacity-0 pointer-events-none transition-opacity duration-300"
+    class="fixed inset-0 bg-cobalt md:hidden opacity-0 pointer-events-none transition-opacity duration-300"
     aria-hidden="true"
   >
-    <div class="flex flex-col items-center justify-center h-full gap-8">
-      <a href="/" class="text-2xl font-display font-bold text-cream hover:text-copper transition-colors mobile-link">Home</a>
-      <a href="/menu" class="text-2xl font-display font-bold text-cream hover:text-copper transition-colors mobile-link">Menu</a>
-      <a href="/story" class="text-2xl font-display font-bold text-cream hover:text-copper transition-colors mobile-link">Story</a>
-      <a href="/story#visit" class="text-2xl font-display font-bold text-cream hover:text-copper transition-colors mobile-link">Visit</a>
+    <div class="absolute inset-0 bg-halftone-cobalt"></div>
+    <div class="relative flex flex-col items-center justify-center h-full gap-7">
+      <a href="/" class="text-3xl font-display text-cream-paper hover:text-turmeric transition-colors mobile-link">Home</a>
+      <a href="/menu" class="text-3xl font-display text-cream-paper hover:text-turmeric transition-colors mobile-link">Menu</a>
+      <a href="/story" class="text-3xl font-display text-cream-paper hover:text-turmeric transition-colors mobile-link">Story</a>
+      <a href="/story#visit" class="text-3xl font-display text-cream-paper hover:text-turmeric transition-colors mobile-link">Visit</a>
       <Button variant="primary" href={`https://wa.me/${import.meta.env.PUBLIC_WHATSAPP_NUMBER || '60123456789'}?text=Hi%20Tiffin%2055!`} target="_blank" rel="noopener" class="mt-4">
         WhatsApp Us
       </Button>
-      <button id="menu-close" class="absolute top-5 right-5 text-cream p-2" aria-label="Close menu">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      <button id="menu-close" class="absolute top-5 right-5 text-cream-paper p-2" aria-label="Close menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       </button>
     </div>
   </div>
@@ -65,9 +69,9 @@ import Button from './Button.astro';
 
     function onScroll() {
       if (window.scrollY > 20) {
-        navbar.classList.add('bg-charcoal/90', 'backdrop-blur-md', 'border-b', 'border-concrete-grey/20');
+        navbar.classList.add('shadow-[0_4px_0_0_#0E1430]');
       } else {
-        navbar.classList.remove('bg-charcoal/90', 'backdrop-blur-md', 'border-b', 'border-concrete-grey/20');
+        navbar.classList.remove('shadow-[0_4px_0_0_#0E1430]');
       }
     }
 

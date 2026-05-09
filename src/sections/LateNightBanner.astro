@@ -1,42 +1,48 @@
 ---
-import ScrollReveal from '../components/ScrollReveal';
 ---
 
-<section class="py-10 bg-copper overflow-hidden">
-  <ScrollReveal client:load direction="left">
-  <div class="whitespace-nowrap" aria-hidden="true">
-    <div class="inline-block animate-marquee">
-      <span class="font-display text-3xl sm:text-4xl font-bold text-charcoal/90 mx-4">OPEN TILL 5AM</span>
-      <span class="text-charcoal/60 mx-4">&middot;</span>
-      <span class="font-display text-3xl sm:text-4xl font-bold text-charcoal/90 mx-4">OPEN TILL 5AM</span>
-      <span class="text-charcoal/60 mx-4">&middot;</span>
-      <span class="font-display text-3xl sm:text-4xl font-bold text-charcoal/90 mx-4">OPEN TILL 5AM</span>
-      <span class="text-charcoal/60 mx-4">&middot;</span>
-      <span class="font-display text-3xl sm:text-4xl font-bold text-charcoal/90 mx-4">OPEN TILL 5AM</span>
-      <span class="text-charcoal/60 mx-4">&middot;</span>
-      <span class="font-display text-3xl sm:text-4xl font-bold text-charcoal/90 mx-4">OPEN TILL 5AM</span>
-      <span class="text-charcoal/60 mx-4">&middot;</span>
-      <span class="font-display text-3xl sm:text-4xl font-bold text-charcoal/90 mx-4">OPEN TILL 5AM</span>
-      <span class="text-charcoal/60 mx-4">&middot;</span>
-    </div>
-    <div class="inline-block animate-marquee">
-      <span class="font-display text-3xl sm:text-4xl font-bold text-charcoal/90 mx-4">OPEN TILL 5AM</span>
-      <span class="text-charcoal/60 mx-4">&middot;</span>
-      <span class="font-display text-3xl sm:text-4xl font-bold text-charcoal/90 mx-4">OPEN TILL 5AM</span>
-      <span class="text-charcoal/60 mx-4">&middot;</span>
-      <span class="font-display text-3xl sm:text-4xl font-bold text-charcoal/90 mx-4">OPEN TILL 5AM</span>
-      <span class="text-charcoal/60 mx-4">&middot;</span>
-      <span class="font-display text-3xl sm:text-4xl font-bold text-charcoal/90 mx-4">OPEN TILL 5AM</span>
-      <span class="text-charcoal/60 mx-4">&middot;</span>
-      <span class="font-display text-3xl sm:text-4xl font-bold text-charcoal/90 mx-4">OPEN TILL 5AM</span>
-      <span class="text-charcoal/60 mx-4">&middot;</span>
-      <span class="font-display text-3xl sm:text-4xl font-bold text-charcoal/90 mx-4">OPEN TILL 5AM</span>
-      <span class="text-charcoal/60 mx-4">&middot;</span>
+<section class="relative py-8 bg-chili overflow-hidden border-y-4 border-ink-blue">
+  <!-- Halftone overlay -->
+  <div class="absolute inset-0 bg-halftone-chili pointer-events-none opacity-80"></div>
+
+  <div class="relative whitespace-nowrap" aria-hidden="true">
+    <div class="marquee-track animate-marquee">
+      {Array.from({ length: 8 }).map(() => (
+        <span class="inline-flex items-center gap-6 mx-6">
+          <span class="font-display text-3xl sm:text-5xl text-cream-paper tracking-wide">OPEN TILL 3AM</span>
+          <svg width="28" height="28" viewBox="0 0 24 24" class="text-turmeric tiffin-spin" aria-hidden="true">
+            <circle cx="12" cy="12" r="10" fill="currentColor" stroke="#0E1430" stroke-width="2"/>
+            <path d="M12 4 L14 12 L12 20 L10 12 Z" fill="#0E1430"/>
+            <path d="M4 12 L12 10 L20 12 L12 14 Z" fill="#0E1430"/>
+          </svg>
+          <span class="font-sign text-3xl sm:text-5xl text-turmeric">·</span>
+          <span class="font-display text-3xl sm:text-5xl text-cream-paper tracking-wide">SUPPER · LEPAK · MAKAN</span>
+          <span class="font-sign text-3xl sm:text-5xl text-turmeric">·</span>
+        </span>
+      ))}
     </div>
   </div>
-  </ScrollReveal>
-  <div class="text-center mt-6 px-5">
-    <p class="text-charcoal/80 text-sm sm:text-base max-w-lg mx-auto">
+
+  <!-- Second reverse track -->
+  <div class="relative whitespace-nowrap mt-3" aria-hidden="true">
+    <div class="marquee-track animate-marquee-rev">
+      {Array.from({ length: 8 }).map(() => (
+        <span class="inline-flex items-center gap-6 mx-6">
+          <span class="font-sign text-2xl sm:text-3xl text-turmeric">★</span>
+          <span class="font-display text-xl sm:text-2xl text-cream-paper">HALAL</span>
+          <span class="font-sign text-2xl sm:text-3xl text-turmeric">★</span>
+          <span class="font-display text-xl sm:text-2xl text-cream-paper">EST. 2023</span>
+          <span class="font-sign text-2xl sm:text-3xl text-turmeric">★</span>
+          <span class="font-display text-xl sm:text-2xl text-cream-paper">WANGSA MAJU</span>
+          <span class="font-sign text-2xl sm:text-3xl text-turmeric">★</span>
+          <span class="font-display text-xl sm:text-2xl text-cream-paper">RATED 4.6</span>
+        </span>
+      ))}
+    </div>
+  </div>
+
+  <div class="relative text-center mt-6 px-5">
+    <p class="font-accent text-cream-paper text-xl sm:text-2xl max-w-lg mx-auto">
       Whether it's a study break, supper run, or first-date escape — we're here.
     </p>
   </div>

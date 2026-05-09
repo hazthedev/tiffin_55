@@ -7,39 +7,59 @@ import siteData from '../data/site.json';
 const { address, hours, googleMapsLink } = siteData;
 ---
 
-<section class="py-16 sm:py-24 bg-charcoal">
-  <Container>
+<section class="relative py-16 sm:py-24 bg-cream-paper overflow-hidden">
+  <div class="absolute inset-0 bg-halftone-cream pointer-events-none opacity-50"></div>
+
+  <Container class="relative">
     <ScrollReveal client:load>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-      <!-- Map preview -->
-      <div class="rounded-sm overflow-hidden bg-coal-brown h-72 sm:h-96">
-        <iframe
-          title="Tiffin 55 Location"
-          src={siteData.googleMapsEmbed}
-          class="w-full h-full border-0"
-          loading="lazy"
-          allowfullscreen
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
+      <!-- Map preview wrapped in retro frame -->
+      <div class="block-card-cobalt overflow-hidden bg-cream-paper">
+        <div class="bg-cobalt px-4 py-2 flex items-center justify-between border-b-2 border-ink-blue">
+          <span class="font-display text-xs text-cream-paper tracking-wider">LOCATION · WANGSA MAJU</span>
+          <div class="flex gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-chili"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-turmeric"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-cardamom"></span>
+          </div>
+        </div>
+        <div class="h-72 sm:h-96">
+          <iframe
+            title="Tiffin 55 Location"
+            src={siteData.googleMapsEmbed}
+            class="w-full h-full border-0 grayscale-[20%] contrast-[1.05]"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
       </div>
 
       <!-- Info -->
       <div>
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-copper mb-3">Find Us</p>
-        <h2 class="font-display text-3xl sm:text-4xl font-bold text-cream">Come lepak with us.</h2>
-        <div class="mt-6 space-y-4">
-          <div>
-            <p class="text-xs font-semibold uppercase tracking-[0.15em] text-cream/40 mb-1">Address</p>
-            <p class="text-cream/80">{address}</p>
+        <span class="stamp text-chili" data-anime="stamp">Find Us</span>
+        <h2 class="mt-5 font-display text-4xl sm:text-5xl text-ink-blue leading-tight">
+          Come <span class="text-chili">lepak</span> with us.
+        </h2>
+        <div class="mt-6 space-y-5">
+          <div class="flex gap-4">
+            <span class="shrink-0 w-10 h-10 bg-turmeric border-2 border-ink-blue inline-flex items-center justify-center font-display text-sm">A</span>
+            <div>
+              <p class="text-[10px] font-display uppercase tracking-[0.2em] text-cobalt mb-1">Address</p>
+              <p class="text-ink-blue font-medium">{address}</p>
+            </div>
           </div>
-          <div>
-            <p class="text-xs font-semibold uppercase tracking-[0.15em] text-cream/40 mb-1">Hours</p>
-            <p class="font-mono text-copper text-lg">{hours.open} – {hours.close} <span class="text-cream/60 text-base font-body">({hours.days})</span></p>
+          <div class="flex gap-4">
+            <span class="shrink-0 w-10 h-10 bg-chili border-2 border-ink-blue inline-flex items-center justify-center font-display text-sm text-cream-paper">H</span>
+            <div>
+              <p class="text-[10px] font-display uppercase tracking-[0.2em] text-cobalt mb-1">Hours</p>
+              <p class="font-mono text-ink-blue text-lg font-semibold">{hours.open} – {hours.close} <span class="text-ink-blue/60 text-base font-body">({hours.days})</span></p>
+            </div>
           </div>
         </div>
         <div class="mt-8 flex flex-col sm:flex-row gap-4">
           <Button variant="primary" href={googleMapsLink} target="_blank" rel="noopener">Get Directions</Button>
-          <Button variant="outline" href="/story#visit">More Details</Button>
+          <Button variant="chrome" href="/story#visit">More Details</Button>
         </div>
       </div>
     </div>

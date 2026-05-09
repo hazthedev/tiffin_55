@@ -1,6 +1,6 @@
 ---
 interface Props {
-  variant?: 'primary' | 'outline' | 'ghost';
+  variant?: 'primary' | 'outline' | 'ghost' | 'chrome';
   href?: string;
   class?: string;
   [key: string]: any;
@@ -8,15 +8,17 @@ interface Props {
 
 const { variant = 'primary', href, class: className = '', ...rest } = Astro.props;
 
-const base = 'inline-flex items-center justify-center gap-2 px-6 py-3 font-medium transition-all duration-200 rounded-sm font-body text-sm tracking-wide';
+const base = 'group relative inline-flex items-center justify-center gap-2 px-6 py-3 font-display text-xs sm:text-sm uppercase tracking-[0.18em] transition-all duration-200 chrome-shine select-none';
 
 const variants: Record<string, string> = {
   primary:
-    'bg-copper text-charcoal hover:bg-copper/90 hover:shadow-[0_4px_20px_rgba(197,100,45,0.3)] active:scale-[0.98]',
+    'bg-turmeric text-ink-blue border-2 border-ink-blue shadow-block-ink hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[9px_9px_0_0_#0E1430] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_0_#0E1430]',
   outline:
-    'border border-copper text-copper hover:bg-copper/10 active:scale-[0.98]',
+    'bg-cream-paper text-ink-blue border-2 border-ink-blue shadow-block-cobalt hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[9px_9px_0_0_#1c3aa9] active:translate-x-[2px] active:translate-y-[2px]',
   ghost:
-    'text-cream hover:text-copper hover:bg-copper/5 active:scale-[0.98]',
+    'bg-transparent text-ink-blue hover:text-chili',
+  chrome:
+    'chrome-rim text-ink-blue border-2 border-ink-blue hover:-translate-y-[1px]',
 };
 
 const classes = `${base} ${variants[variant]} ${className}`;

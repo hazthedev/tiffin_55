@@ -1,14 +1,4 @@
 ---
-import '@fontsource/bricolage-grotesque/400.css';
-import '@fontsource/bricolage-grotesque/500.css';
-import '@fontsource/bricolage-grotesque/600.css';
-import '@fontsource/bricolage-grotesque/700.css';
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/500.css';
-import '@fontsource/inter/600.css';
-import '@fontsource/caveat/400.css';
-import '@fontsource/jetbrains-mono/400.css';
-import '@fontsource/jetbrains-mono/500.css';
 import '../styles/global.css';
 
 interface Props {
@@ -84,7 +74,42 @@ const siteUrl = 'https://tiffin55.vercel.app';
       }
     })} />
   </head>
-  <body class="min-h-dvh bg-charcoal text-cream antialiased">
+  <body class="min-h-dvh antialiased">
     <slot />
+    <!-- anime.js via CDN — used opportunistically by sections (spin/shine accents) -->
+    <script is:inline src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+    <script is:inline>
+      (function () {
+        if (typeof window === 'undefined' || !window.anime) return;
+        // Tiffin tin spin accents already use CSS; anime.js adds gentle wobble to elements with [data-anime="wobble"]
+        const wobble = document.querySelectorAll('[data-anime="wobble"]');
+        if (wobble.length) {
+          window.anime({
+            targets: wobble,
+            rotate: [
+              { value: -3, duration: 800 },
+              { value: 3, duration: 800 },
+              { value: 0, duration: 600 },
+            ],
+            loop: true,
+            direction: 'alternate',
+            easing: 'easeInOutSine',
+          });
+        }
+        // Stamp pop-in
+        const stamps = document.querySelectorAll('[data-anime="stamp"]');
+        if (stamps.length) {
+          window.anime({
+            targets: stamps,
+            scale: [0.4, 1],
+            rotate: [-12, 0],
+            opacity: [0, 1],
+            duration: 700,
+            delay: window.anime.stagger(120),
+            easing: 'easeOutBack',
+          });
+        }
+      })();
+    </script>
   </body>
 </html>
